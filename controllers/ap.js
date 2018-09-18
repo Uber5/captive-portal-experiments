@@ -8,9 +8,9 @@ const router = new Router({
 
 router.get('/', async (ctx, next) => {
   console.log(`GET ${prefix}, headers`, ctx.headers)
-  ctx.body = 'should have written to mongodb';
+  ctx.body = 'should prompt for login';
   ctx.set('X-test1', `Glitch-time is: ${ new Date() }`);
-  ctx.status = 201;
+  // ctx.status = 201;
   next();
 });
 
