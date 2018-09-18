@@ -1,39 +1,15 @@
-// server.js
-// where your node app starts
+var Koa = require('koa');
 
-// init project
-const express = require('express')
-const app = express()
+var app = new Koa();
 
-// we've started you off with Express, 
-// but feel free to use whatever libs or frameworks you'd like through `package.json`.
+// app.use(pings.routes())
+// app.use(pings.allowedMethods());
 
-// http://expressjs.com/en/starter/static-files.html
-app.use(express.static('public'))
+// app.use(ifttt.routes())
+// app.use(ifttt.allowedMethods());
 
-// http://expressjs.com/en/starter/basic-routing.html
-app.get("/", (request, response) => {
-  response.sendFile(__dirname + '/views/index.html')
-})
+app.listen(process.env.PORT);
 
-// Simple in-memory store
-const dreams = [
-  "Find and count some sheep",
-  "Climb a really tall mountain",
-  "Wash the dishes"
-]
-
-app.get("/dreams", (request, response) => {
-  response.send(dreams)
-})
-
-// could also use the POST body instead of query string: http://expressjs.com/en/api.html#req.body
-app.post("/dreams", (request, response) => {
-  dreams.push(request.query.dream)
-  response.sendStatus(200)
-})
-
-// listen for requests :)
-const listener = app.listen(process.env.PORT, () => {
-  console.log(`Your app is listening on port ${listener.address().port}`)
-})
+process.on('unhandledRejection', (reason, p) => {
+  console.log('Unhandled Rejection at:', p, 'reason:', reason);
+});
