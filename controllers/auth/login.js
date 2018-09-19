@@ -15,7 +15,7 @@ module.exports = async props => {
     CODE: 'REJECT'
   }
   
-  const cleartextPassword = decodePassword(password)
+  const cleartextPassword = decodePassword({ encoded: password, ra })
   if (username === 'test1') { // TODO
     response.CODE = 'ACCEPT'
     response.SECONDS = 120
