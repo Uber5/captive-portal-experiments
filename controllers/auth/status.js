@@ -5,9 +5,11 @@ module.exports = async props => {
   console.log('status, requesting access, mac')
   
   // check if this session / mac are still valid or known?
+  const code = 'REJECT'
+  
   return {
-    CODE: 'REJECT',
-    RA: ra({ ,
+    CODE: code,
+    RA: calcRequestAuthenticator({ ra, code }),
     BLOCKED_MSG: 'You are not authenticated yet'    
   }
 }
