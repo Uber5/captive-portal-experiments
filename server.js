@@ -2,12 +2,11 @@ var Koa = require('koa');
 var app = new Koa();
 
 var ap = require('./controllers/ap')
-
 app.use(ap.routes())
 app.use(ap.allowedMethods());
-
-// app.use(ifttt.routes())
-// app.use(ifttt.allowedMethods());
+var auth = require('./controllers/auth')
+app.use(auth.routes())
+app.use(auth.allowedMethods());
 
 app.listen(process.env.PORT);
 
