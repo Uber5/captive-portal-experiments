@@ -17,7 +17,9 @@ var auth = require('./controllers/auth')
 app.use(auth.routes())
 app.use(auth.allowedMethods());
 
-app.listen(process.env.PORT);
+const port = process.env.PORT
+app.listen(port);
+console.log('listening, port', port);
 
 process.on('unhandledRejection', (reason, p) => {
   console.log('Unhandled Rejection at:', p, 'reason:', reason);
