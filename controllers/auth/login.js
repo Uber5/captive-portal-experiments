@@ -26,9 +26,3 @@ module.exports = async props => {
   response.RA = calcRequestAuthenticator({ ra, code: response.CODE })
   return response
 }
-
-
-module.exports = async props => {
-  console.log('auth, props', props);
-  return { dummy: 123 }
-}
