@@ -20,7 +20,7 @@ module.exports = async props => {
     response.DOWNLOAD = 1024
     response.UPLOAD = 1024
   } else {
-    response.BLOCKED_MSG = 'Not a valid test user'
+    response.BLOCKED_MSG = encodeURIComponent('Not a valid test user')
   }
   
   response.RA = calcRequestAuthenticator({ ra, code: response.CODE })
