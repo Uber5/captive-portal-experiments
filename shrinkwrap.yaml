@@ -1,4 +1,5 @@
 dependencies:
+  debug: 4.0.1
   koa: 2.5.3
   koa-router: 7.4.0
 packages:
@@ -64,6 +65,12 @@ packages:
     dev: false
     resolution:
       integrity: sha512-D61LaDQPQkxJ5AUM2mbSJRbPkNs/TmdmOeLAi1hgDkpDfIfetSrjmWhccwtuResSwMbACjx/xXQofvM9CE/aeg==
+  /debug/4.0.1:
+    dependencies:
+      ms: 2.1.1
+    dev: false
+    resolution:
+      integrity: sha512-K23FHJ/Mt404FSlp6gSZCevIbTMLX0j3fmHhUEhQ3Wq0FMODW3+cUSoLdy1Gx4polAf4t/lphhmHH35BB8cLYw==
   /deep-equal/1.0.1:
     dev: false
     resolution:
@@ -317,5 +324,6 @@ registry: 'https://registry.npmjs.org/'
 shrinkwrapMinorVersion: 9
 shrinkwrapVersion: 3
 specifiers:
+  debug: ^4.0.1
   koa: ^2.5.3
   koa-router: ^7.4.0

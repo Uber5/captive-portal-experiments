@@ -10,7 +10,8 @@
   },
   "dependencies": {
     "koa": "^2.5.3",
-    "koa-router": "^7.4.0"
+    "koa-router": "^7.4.0",
+    "debug": "^4.0.1"
   },
   "engines": {
     "node": "9.x"
