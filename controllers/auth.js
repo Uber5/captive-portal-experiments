@@ -7,7 +7,7 @@ const router = new Router({
 });
 
 const handlers = {
-  login: async props => { console.log('handle login'); return { res: 123 } },
+  login: require('./auth/login'),
 }
 
 const encodeResponse = props => Object.keys(props)
@@ -15,13 +15,12 @@ const encodeResponse = props => Object.keys(props)
 .join('\n')
 
 router.get('/', async (ctx, next) => {
-  // console.log(`GET ${prefix}, headers`, ctx.headers)
-  console.log('type', ctx.query.type)
-  const { type } = ctx.query
+  const { query } = ctx
+  const { type } = query
   if (!handlers[type]) {
     throw new Error('No handler for request type')
   }
-  const response = await handlers[type]()
+  const response = await handlers[type](query)
   console.log('response', response)
   ctx.body = encodeResponse(response)
   next();
