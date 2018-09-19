@@ -5,7 +5,6 @@ app.use(async (ctx, next) => {
   try {
     await next()
   } catch (e) {
-    // console.error('ERROR', e.message)
     // TODO: we may want to do something with the error here
     throw e
   }
