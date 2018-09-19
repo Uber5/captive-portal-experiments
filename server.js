@@ -1,6 +1,15 @@
 var Koa = require('koa');
 var app = new Koa();
 
+app.use(async (ctx, next) => {
+  try {
+    await next()
+  } catch (e) {
+    console.error('ERROR', e.message)
+    throw e
+  }
+})
+
 var ap = require('./controllers/ap')
 app.use(ap.routes())
 app.use(ap.allowedMethods());
