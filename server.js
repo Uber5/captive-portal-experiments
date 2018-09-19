@@ -10,9 +10,9 @@ app.use(async (ctx, next) => {
   }
 })
 
-var ap = require('./controllers/ap')
-app.use(ap.routes())
-app.use(ap.allowedMethods());
+var splash = require('./controllers/splash')
+app.use(splash.routes())
+app.use(splash.allowedMethods());
 var auth = require('./controllers/auth')
 app.use(auth.routes())
 app.use(auth.allowedMethods());

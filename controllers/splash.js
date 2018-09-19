@@ -1,10 +1,13 @@
 const Router = require('koa-router');
 
-const prefix = '/ap'
+const prefix = '/splash'
 
 const router = new Router({
   prefix
 });
+
+const handlerNames = [ 'notyet', 'success', 'failed', 'logoff' ]
+
 
 router.get('/', async (ctx, next) => {
   console.log(`GET ${prefix}, headers`, ctx.headers)
