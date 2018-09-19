@@ -23,7 +23,7 @@ router.get('/', async (ctx, next) => {
   const { query } = ctx
   const { type } = query
   if (!handlers[type]) {
-    throw new Error('No handler for request type')
+    throw new Error('No handler for request type: ' + type)
   }
   const response = await handlers[type](query)
   console.log('response', response)
