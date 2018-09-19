@@ -6,9 +6,14 @@ const router = new Router({
   prefix
 });
 
-const handlers = {
-  login: require('./auth/login'),
-}
+const handlerNames = [ 'status', 'login', 'acct', 'logout' ]
+
+const handlers = handlerNames.map(name => ({ name, handler: require('./auth/' + name) }))
+.reduce((handlers, e) => {
+  const { name, handler } = e
+  handlers[name] = handler
+  return handlers
+}, {})
 
 const encodeResponse = props => Object.keys(props)
 .map(key => `"${key}" "${props[key]}"`)
