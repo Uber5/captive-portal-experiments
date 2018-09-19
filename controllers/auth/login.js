@@ -1,6 +1,7 @@
 const assert = require('assert')
 const debug = require('debug')('captive-portal:login')
 const calcRequestAuthenticator = require('../../lib/ra')
+const decodePassword = require('../../lib/decode-password')
 
 module.exports = async props => {
   
@@ -14,6 +15,7 @@ module.exports = async props => {
     CODE: 'REJECT'
   }
   
+  const cleartextPassword = decodePassword(password)
   if (username === 'test1') { // TODO
     response.CODE = 'ACCEPT'
     response.SECONDS = 120
